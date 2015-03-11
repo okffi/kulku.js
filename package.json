@@ -1,0 +1,35 @@
+{
+  "name": "kulku.js",
+  "version": "0.0.1",
+  "description": "Mobility data processing",
+  "author": {
+    "name": "haphut",
+    "email": "haphut@gmail.com",
+    "url": "https://github.com/haphut"
+  },
+  "homepage": "https://github.com/okffi/kulku.js",
+  "bugs": {
+    "url": "https://github.com/okffi/kulku.js/issues"
+  },
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/okffi/kulku.js.git"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^3.5.0",
+    "turf": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jsdoc": "^0.1.4",
+    "gulp-jshint": "^1.9.2",
+    "gulp-traceur": "^0.17.0",
+    "jsverify": "^0.5.2",
+    "mocha": "^2.2.1",
+    "mocha-traceur": "^2.1.0",
+    "rimraf": "^2.3.2",
+    "should": "^5.2.0"
+  }
+}
