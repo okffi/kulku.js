@@ -29,7 +29,9 @@ import {isNonNegative} from './util';
  * The function stores only finite values.
  *
  * @param coordinates {Object} The object must follow the Coordinates interface
- * in the Geolocation API Specification W3C Recommendation 2013-10-24.
+ * in the Geolocation API Specification W3C Recommendation 2013-10-24. Use the
+ * default geographic coordinate reference system with the WGS84 datum and
+ * latitude and longitude in decimal degrees.
  * @param timestamp {Date}
  * @see http://www.w3.org/TR/2013/REC-geolocation-API-20131024/#coordinates_interface
  */
