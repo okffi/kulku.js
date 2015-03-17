@@ -196,8 +196,8 @@ const fakeRealisticMobilityData = () => {
     [ 24.93721604347229,  60.185670245418876 ]
   ];
 
-  // Fake jogging timestamps.
-  const fixTimestamps = [
+  // Fake jogging Unix timestamps.
+  const fixTimes = [
     1425043389620,
     1425043393673,
     1425043398174,
@@ -308,10 +308,10 @@ const fakeRealisticMobilityData = () => {
   ];
 
   const itineraryFeature = turf.linestring(itineraryCoordinates);
-  const fixDates = _.map(fixTimestamps, t => new Date(t));
+  const fixTimestamps = _.map(fixTimes, t => new Date(t));
   // Avoid dependency on createFix.
   const fixes = _(fixCoordinates)
-                .zip(fixDates)
+                .zip(fixTimestamps)
                 .map(([coordinates, timestamp]) =>
                      turf.point(coordinates, { timestamp }))
                 .value();
@@ -320,7 +320,7 @@ const fakeRealisticMobilityData = () => {
     itineraryCoordinates,
     itineraryFeature,
     fixCoordinates,
-    fixDates,
+    fixTimes,
     fixTimestamps,
     fixes
   };
