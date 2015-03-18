@@ -28,3 +28,7 @@ gulp.task('test', function(callback) {
                 callback(err);
               });
 });
+
+gulp.task('default', ['clean'], function () {
+  gulp.start('build');
+});
