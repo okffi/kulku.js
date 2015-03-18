@@ -19,7 +19,7 @@
  */
 
 import _ from 'lodash';
-import should from 'should';
+import should from 'should'; // jshint ignore:line
 
 import {padToSymmetry} from '../src/padder';
 

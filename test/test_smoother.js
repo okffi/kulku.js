@@ -21,7 +21,7 @@
 // FIXME: Import again, when you get the jsverify tests working.
 //import jsc from 'jsverify';
 import _ from 'lodash';
-import should from 'should';
+import should from 'should'; // jshint ignore:line
 
 import {createSmoother} from '../src/smoother';
 // FIXME: Import again, when you get the jsverify tests working.

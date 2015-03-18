@@ -18,7 +18,7 @@
  * along with kulku.js.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import should from 'should';
+import should from 'should'; // jshint ignore:line
 
 import {createFix} from '../src/fix';
 
