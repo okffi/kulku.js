@@ -29,7 +29,7 @@ import _ from 'lodash';
  *     elements one should pad with. If the value is negative, one should
  *     prepend. If positive, append. If zero, do not pad.
  */
-let calculatePadNeed = (length, index) => {
+const calculatePadNeed = (length, index) => {
   let padNeed = 0;
   if (length > 0) {
     const mid = (length - 1) / 2;
@@ -38,7 +38,7 @@ let calculatePadNeed = (length, index) => {
   return padNeed;
 };
 
-let mirrorTime = (reference, timeDifferences, startIndex, endIndex) => {
+const mirrorTime = (reference, timeDifferences, startIndex, endIndex) => {
   return _(timeDifferences)
          .slice(startIndex, endIndex)
          .reverse()
@@ -46,7 +46,7 @@ let mirrorTime = (reference, timeDifferences, startIndex, endIndex) => {
          .value();
 };
 
-let prependTimeDifferences = (timeDifferences, padNeed, index) => {
+const prependTimeDifferences = (timeDifferences, padNeed, index) => {
   const reference = timeDifferences[index];
   const start = 2 * index + 1;
   const end = start - padNeed;
@@ -54,7 +54,7 @@ let prependTimeDifferences = (timeDifferences, padNeed, index) => {
   return toPrependTime.concat(timeDifferences);
 };
 
-let appendTimeDifferences = (timeDifferences, padNeed, index) => {
+const appendTimeDifferences = (timeDifferences, padNeed, index) => {
   const reference = timeDifferences[index];
   const end = 2 * index - _.size(timeDifferences) + 1;
   const start = end - padNeed;
@@ -62,12 +62,12 @@ let appendTimeDifferences = (timeDifferences, padNeed, index) => {
   return timeDifferences.concat(toAppendTime);
 };
 
-let prependDistances = (distances, padNeed) => {
+const prependDistances = (distances, padNeed) => {
   const fillValue = _.constant(_.first(distances));
   return _.times(-padNeed, fillValue).concat(distances);
 };
 
-let appendDistances = (distances, padNeed) => {
+const appendDistances = (distances, padNeed) => {
   const fillValue = _.constant(_.last(distances));
   return distances.concat(_.times(padNeed, fillValue));
 };
@@ -82,7 +82,7 @@ let appendDistances = (distances, padNeed) => {
  * @param index {Number} The index for the given arrays around which symmetry
  *     will be built.
  */
-let padToSymmetry = (index, distances, timeDifferences) => {
+const padToSymmetry = (index, distances, timeDifferences) => {
   if (!_.isArray(distances) || !_.isArray(timeDifferences)) {
     throw new Error('distances and timeDifferences must be arrays.');
   }

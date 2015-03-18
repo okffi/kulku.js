@@ -22,7 +22,7 @@ import _ from 'lodash';
 import should from 'should';
 
 // FIXME: Replace with jsverify.
-let throwOnNotArray = (func, msg) => {
+const throwOnNotArray = (func, msg) => {
   _.partial(func, 'foo').should.throw(msg);
   _.partial(func, '').should.throw(msg);
   _.partial(func, '123').should.throw(msg);
@@ -36,7 +36,7 @@ let throwOnNotArray = (func, msg) => {
 };
 
 // FIXME: Replace with jsverify.
-let throwOnNotNumber = (func, msg) => {
+const throwOnNotNumber = (func, msg) => {
   _.partial(func, 'foo').should.throw(msg);
   _.partial(func, '').should.throw(msg);
   _.partial(func, '123').should.throw(msg);

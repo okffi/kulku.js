@@ -21,12 +21,12 @@
 import _ from 'lodash';
 import turf from 'turf';
 
-let isNonNegative = (x) => _.isFinite(x) && x >= 0;
+const isNonNegative = (x) => _.isFinite(x) && x >= 0;
 
 /**
  * Calculates date1 - date2 in seconds.
  */
-let calculateTimeDifferenceInSeconds = (date1, date2) => {
+const calculateTimeDifferenceInSeconds = (date1, date2) => {
   return 1e-3 * (date1.getTime() - date2.getTime());
 };
 
@@ -35,7 +35,7 @@ let calculateTimeDifferenceInSeconds = (date1, date2) => {
  * Date to the Date at index. Larger dates get positive sign, smaller dates
  * negative.
  */
-let calculateTimeSinceReferenceInSeconds = (dateArray, index) => {
+const calculateTimeSinceReferenceInSeconds = (dateArray, index) => {
   return _.map(dateArray, _.partial(calculateTimeDifferenceInSeconds, _,
                                     dateArray[index]));
 };
@@ -43,7 +43,7 @@ let calculateTimeSinceReferenceInSeconds = (dateArray, index) => {
 /**
  * Inclusive. Suitable for the first argument of _.range().
  */
-let findFirstIndexWithinWindow = (windowInSeconds, timestamps, center) => {
+const findFirstIndexWithinWindow = (windowInSeconds, timestamps, center) => {
   return _.sortedIndex(timestamps, new Date(center.getTime() -
                                             1e3 * 0.5 * windowInSeconds));
 };
@@ -51,7 +51,7 @@ let findFirstIndexWithinWindow = (windowInSeconds, timestamps, center) => {
 /**
  * Exclusive. Suitable for the second argument of _.range().
  */
-let findFirstIndexAfterWindow = (windowInSeconds, timestamps, center) => {
+const findFirstIndexAfterWindow = (windowInSeconds, timestamps, center) => {
   return _.sortedIndex(timestamps, new Date(center.getTime() +
                                             1e3 * 0.5 * windowInSeconds));
 };
@@ -59,7 +59,7 @@ let findFirstIndexAfterWindow = (windowInSeconds, timestamps, center) => {
 /**
  * Calculate the distance between two GeoJSON points in meters.
  */
-let calculateDistanceInMeters = (point1, point2) => {
+const calculateDistanceInMeters = (point1, point2) => {
   return 1e3 * turf.distance(point1, point2, 'kilometers');
 };
 

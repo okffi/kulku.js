@@ -33,7 +33,7 @@ import {isNonNegative} from './util';
  * @param timestamp {Date}
  * @see http://www.w3.org/TR/2013/REC-geolocation-API-20131024/#coordinates_interface
  */
-let createFix = (coordinates, timestamp) => {
+const createFix = (coordinates, timestamp) => {
   const longitude = coordinates.longitude;
   if (!_.isNumber(longitude) || longitude < -180 || longitude > 180) {
     throw new Error('coordinates.longitude must be a number on the interval ' +
@@ -79,8 +79,8 @@ let createFix = (coordinates, timestamp) => {
   return turf.point(coords, properties);
 };
 
-let transformLeafletPositionToFix = (leafletEvent) => {
-  let latlng = leafletEvent.latlng;
+const transformLeafletPositionToFix = (leafletEvent) => {
+  const latlng = leafletEvent.latlng;
   let coordinates = {
     'longitude': latlng.lng,
     'latitude': latlng.lat
@@ -91,7 +91,7 @@ let transformLeafletPositionToFix = (leafletEvent) => {
                 .assign(coordinates)
                 .value();
 
-  let timestamp = new Date(leafletEvent.timestamp);
+  const timestamp = new Date(leafletEvent.timestamp);
 
   return createFix(coordinates, timestamp);
 };
