@@ -40,10 +40,10 @@ const calculatePadNeed = (length, index) => {
 
 const mirrorTime = (reference, timeDifferences, startIndex, endIndex) => {
   return _(timeDifferences)
-         .slice(startIndex, endIndex)
-         .reverse()
-         .map(diff => 2 * reference - diff)
-         .value();
+    .slice(startIndex, endIndex)
+    .reverse()
+    .map(diff => 2 * reference - diff)
+    .value();
 };
 
 const prependTimeDifferences = (timeDifferences, padNeed, index) => {

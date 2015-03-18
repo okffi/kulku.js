@@ -57,9 +57,9 @@ const createFix = (coordinates, timestamp) => {
   }
 
   let properties = _(coordinates)
-                   .pick(['speed', 'accuracy', 'altitudeAccuracy'])
-                   .pick(isNonNegative)
-                   .value();
+    .pick(['speed', 'accuracy', 'altitudeAccuracy'])
+    .pick(isNonNegative)
+    .value();
 
   const heading = coordinates.heading;
   if (heading && (!properties.speed || properties.speed !== 0)) {
@@ -87,9 +87,9 @@ const transformLeafletPositionToFix = (leafletEvent) => {
   };
 
   coordinates = _(leafletEvent)
-                .omit(['latlng', 'timestamp'])
-                .assign(coordinates)
-                .value();
+    .omit(['latlng', 'timestamp'])
+    .assign(coordinates)
+    .value();
 
   const timestamp = new Date(leafletEvent.timestamp);
 
