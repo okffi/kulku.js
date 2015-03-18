@@ -98,4 +98,34 @@ const transformLeafletPositionToFix = (leafletEvent) => {
   return createFix(coordinates, timestamp);
 };
 
-export {createFix, transformLeafletPositionToFix};
+const isFix = (fix) => {
+  if (!fix) {
+    return false;
+  }
+  if (fix.type !== 'Feature') {
+    return false;
+  }
+
+  const geometry = fix.geometry;
+  if (!geometry || geometry.type !== 'Point') {
+    return false;
+  }
+  // Let's not check coordinate values and get into the trouble of verifying
+  // coordinate reference systems.
+  if (!_.isArray(geometry.coordinates)) {
+    return false;
+  }
+
+  const properties = fix.properties;
+  if (!properties) {
+    return false;
+  }
+  const timestamp = properties.timestamp;
+  if (!timestamp || !_.isDate(timestamp)) {
+    return false;
+  }
+
+  return true;
+};
+
+export {createFix, isFix, transformLeafletPositionToFix};
