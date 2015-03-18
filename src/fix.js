@@ -23,23 +23,6 @@ import turf from 'turf';
 
 import {isNonNegative} from './util';
 
-let transformLeafletPositionToFix = (leafletEvent) => {
-  let latlng = leafletEvent.latlng;
-  let coordinates = {
-    'longitude': latlng.lng,
-    'latitude': latlng.lat
-  };
-
-  coordinates = _(leafletEvent)
-                .omit(['latlng', 'timestamp'])
-                .assign(coordinates)
-                .value();
-
-  let timestamp = new Date(leafletEvent.timestamp);
-
-  return createFix(coordinates, timestamp);
-};
-
 /**
  * Create a GeoJSON fix from a coordinates object and a timestamp.
  *
@@ -94,6 +77,23 @@ let createFix = (coordinates, timestamp) => {
   properties.timestamp = timestamp;
 
   return turf.point(coords, properties);
+};
+
+let transformLeafletPositionToFix = (leafletEvent) => {
+  let latlng = leafletEvent.latlng;
+  let coordinates = {
+    'longitude': latlng.lng,
+    'latitude': latlng.lat
+  };
+
+  coordinates = _(leafletEvent)
+                .omit(['latlng', 'timestamp'])
+                .assign(coordinates)
+                .value();
+
+  let timestamp = new Date(leafletEvent.timestamp);
+
+  return createFix(coordinates, timestamp);
 };
 
 export {createFix, transformLeafletPositionToFix};
