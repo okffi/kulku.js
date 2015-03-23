@@ -36,5 +36,6 @@ var obj = {
   isNonNegative: util.isNonNegative
 };
 
+// FIXME: For some reason the functions are not exported and only the object is.
 obj.default = obj;
 module.exports = obj;
