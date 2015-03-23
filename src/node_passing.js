@@ -19,7 +19,8 @@
  */
 
 import _ from 'lodash';
-import turf from 'turf';
+import bezier from 'turf-bezier';
+import linestring from 'turf-linestring';
 
 import {
   calculateTimeSinceReferenceInSeconds,
@@ -114,17 +115,17 @@ const transformSmoothedToLineString = (smoothed) => {
   const timeDifferences = calculateTimeSinceReferenceInSeconds(timestamps, 0);
   const distances = _.map(smoothed, _.property('distance'));
   const coordinates = _.zip(timeDifferences, distances);
-  return turf.linestring(coordinates);
+  return linestring(coordinates);
 };
 
 //const transformSmoothedToLineString = (smoothed) => {
 //  // FIXME: Perhaps use time differences instead of raw timestamps for numerical accuracy.
 //  const coordinates =
 //    _.map(smoothed, ({distance: d, timestamp: ts}) => [ts.getTime(), d]);
-//  return turf.linestring(coordinates);
+//  return linestring(coordinates);
 //};
 
-const interpolate = turf.bezier;
+const interpolate = bezier;
 
 /**
  * Interpreting the longitudes and latitudes of a LineString as timestamps and
@@ -288,14 +289,14 @@ export {createNodePassingEstimator};
 //      let smoothedToInterpolate = _.at(storedSmoothed, idxArray);
 //
 //      let lineString = transformSmoothedToLineString(smoothedToInterpolate);
-//      let bezierCurve = turf.bezier(lineString);
+//      let bezierCurve = bezier(lineString);
 //      result = findMinimumTimestamp(bezierCurve);
 //
 //      // Find t seconds before and after the minimum fix.
 //      // pick the relevant distances by time window,
 //      // calculate time differences
 //      // create a linestring with (relative time, smoothed distance) as points
-//      // turf.bezier(linestring)
+//      // bezier(linestring)
 //      // find minimum
 //    }
 //

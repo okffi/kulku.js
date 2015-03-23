@@ -18,7 +18,9 @@
  * along with kulku.js.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import turf from 'turf';
+import distance from 'turf-distance';
+// FIXME: Traceur does not like the dashes.
+import pointonline from 'turf-point-on-line';
 
 const DEFAULT_OFF_ITINERARY_DISTANCE_IN_METERS = 50;
 const DEFAULT_CONSECUTIVE_OFF_LIMIT = 3;
@@ -31,7 +33,7 @@ const createItineraryWatcher =
 
   const isOnItinerary = (fix) => {
     const distanceFromLineString =
-      turf.distance(fix, turf.point-on-line(lineString, fix));
+      distance(fix, pointonline(lineString, fix));
 
     if (distanceFromLineString > offItineraryDistanceInMeters) {
       ++nConsecutiveOff;

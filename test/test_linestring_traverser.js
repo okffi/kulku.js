@@ -20,7 +20,7 @@
 
 import _ from 'lodash';
 import should from 'should';
-import turf from 'turf';
+import explode from 'turf-explode';
 
 import {createLineStringTraverser} from '../src/linestring_traverser';
 
@@ -49,7 +49,7 @@ describe('createLineStringTraverser', () => {
                                         _.property('timestamp'));
 
       it('returns traversed nodes in feeding order', () => {
-        const itineraryPointArray = turf.explode(itineraryFeature).features;
+        const itineraryPointArray = explode(itineraryFeature).features;
         _(traversedNodes)
           .map(_.property('node'))
           .zip(itineraryPointArray)

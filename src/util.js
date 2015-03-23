@@ -19,7 +19,7 @@
  */
 
 import _ from 'lodash';
-import turf from 'turf';
+import distance from 'turf-distance';
 
 const isNonNegative = (x) => _.isFinite(x) && x >= 0;
 
@@ -60,7 +60,7 @@ const findFirstIndexAfterWindow = (windowInSeconds, timestamps, center) => {
  * Calculate the distance between two GeoJSON points in meters.
  */
 const calculateDistanceInMeters = (point1, point2) => {
-  return 1e3 * turf.distance(point1, point2, 'kilometers');
+  return 1e3 * distance(point1, point2, 'kilometers');
 };
 
 export {

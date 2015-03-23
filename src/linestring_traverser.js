@@ -19,7 +19,7 @@
  */
 
 import _ from 'lodash';
-import turf from 'turf';
+import explode from 'turf-explode';
 
 import {createNodePassingEstimator} from './node_passing';
 import {createSmoother} from './smoother';
@@ -53,7 +53,7 @@ const createNodeDistanceHandler = (distanceFunction, smoothingFunction) => {
 };
 
 const transformLineStringToPoints = (lineString) => {
-  return turf.explode(lineString).features;
+  return explode(lineString).features;
 };
 
 const createNodeHandler = (lineString, smoothingWindowInSeconds) => {

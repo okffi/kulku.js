@@ -19,7 +19,7 @@
  */
 
 import _ from 'lodash';
-import turf from 'turf';
+import point from 'turf-point';
 
 import {isNonNegative} from './util';
 
@@ -78,7 +78,7 @@ const createFix = (coordinates, timestamp) => {
   }
   properties.timestamp = timestamp;
 
-  return turf.point(coords, properties);
+  return point(coords, properties);
 };
 
 const transformLeafletPositionToFix = (leafletEvent) => {

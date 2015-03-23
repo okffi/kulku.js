@@ -20,7 +20,8 @@
 
 import _ from 'lodash';
 import should from 'should'; // jshint ignore:line
-import turf from 'turf';
+import linestring from 'turf-linestring';
+import point from 'turf-point';
 
 // FIXME: Replace with jsverify.
 const throwOnNotArray = (func, msg) => {
@@ -307,13 +308,13 @@ const fakeRealisticMobilityData = () => {
     1425043913780
   ];
 
-  const itineraryFeature = turf.linestring(itineraryCoordinates);
+  const itineraryFeature = linestring(itineraryCoordinates);
   const fixTimestamps = _.map(fixTimes, t => new Date(t));
   // Avoid dependency on createFix.
   const fixes = _(fixCoordinates)
                 .zip(fixTimestamps)
                 .map(([coordinates, timestamp]) =>
-                     turf.point(coordinates, { timestamp }))
+                     point(coordinates, { timestamp }))
                 .value();
 
   return {
