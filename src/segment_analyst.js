@@ -56,12 +56,12 @@ const createSegmentAnalyst = (lineString, analyse = calculateAverageSpeed,
       result = _(segments)
         .zip(analyses)
         .map(([[start, end], oneAnalysis]) => {
-          let obj = {
+          let segment = {
             start,
             end
           };
-          obj[analysisName] = oneAnalysis;
-          return obj;
+          segment[analysisName] = oneAnalysis;
+          return segment;
         })
         .value();
       latestPassedNode = _.last(traversed);
