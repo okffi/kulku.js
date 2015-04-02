@@ -20,7 +20,7 @@ gulp.task('build', ['clean'], function() {
 });
 
 gulp.task('lint', function() {
-  return gulp.src(['src/**/*.js', 'test/**/*.js'])
+  return gulp.src(['src/**/*.js', 'test/**/*.js', 'gulpfile.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
