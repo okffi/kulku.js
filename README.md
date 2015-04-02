@@ -14,6 +14,8 @@ The code in `src/` is written in ES6 and transpiled to ES5.
 
 ```sh
 npm install -g gulp
+npm install lodash-cli
+./build_lodash.sh
 npm install
 gulp test
 gulp build
