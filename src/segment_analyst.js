@@ -20,6 +20,7 @@
 
 import _ from 'lodash';
 
+import {calculateAverageSpeed} from './average_speed.js';
 import {createLineStringTraverser} from './linestring_traverser';
 import {isLineString} from './linestring';
 
