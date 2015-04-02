@@ -1,8 +1,13 @@
+var browserify = require('browserify');
 var exec = require('child_process').exec;
+var es6ify = require('es6ify');
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var traceur = require('gulp-traceur');
+var uglify = require('gulp-uglify');
 var rimraf = require('rimraf');
+var buffer = require('vinyl-buffer');
+var source = require('vinyl-source-stream');
 
 gulp.task('clean', function(callback) {
   rimraf('./lib', callback);
@@ -29,6 +34,16 @@ gulp.task('test', function(callback) {
               });
 });
 
-gulp.task('default', ['clean'], function () {
-  gulp.start('build');
+gulp.task('browserify', ['build'], function() {
+  return browserify('./browserified/exports.js')
+    .transform(es6ify)
+    .bundle()
+    .pipe(source('kulku.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(gulp.dest('./browserified/'));
+});
+
+gulp.task('default', function () {
+  gulp.start('browserify');
 });

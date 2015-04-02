@@ -27,15 +27,20 @@
     "turf-point-on-line": "^1.0.2"
   },
   "devDependencies": {
+    "browserify": "^9.0.4",
+    "buffer": "^3.1.2",
+    "es6ify": "^1.6.0",
     "gulp": "^3.8.11",
     "gulp-jsdoc": "^0.1.4",
     "gulp-jshint": "^1.9.2",
     "gulp-traceur": "^0.17.0",
+    "gulp-uglify": "^1.1.0",
     "jsverify": "^0.5.2",
     "lodash-cli": "^3.6.0",
     "mocha": "^2.2.1",
     "mocha-traceur": "^2.1.0",
     "rimraf": "^2.3.2",
-    "should": "^5.2.0"
+    "should": "^5.2.0",
+    "source": "0.0.3"
   }
 }
