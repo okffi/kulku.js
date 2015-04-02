@@ -19,6 +19,7 @@
   "main": "index.js",
   "dependencies": {
     "lodash": "file:./lodash_custom",
+    "traceur-runtime": "haphut/traceur-runtime#c85f80172da1cad5444d1b1ec640a07b516411cd",
     "turf-bezier": "^1.0.2",
     "turf-distance": "^1.0.1",
     "turf-explode": "^1.0.1",

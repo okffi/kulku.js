@@ -1,4 +1,4 @@
-require('traceur/bin/traceur-runtime');
+require('traceur-runtime');
 
 var average_speed = require('./lib/average_speed.js');
 var fix = require('./lib/fix.js');
