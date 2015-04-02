@@ -1,6 +1,0 @@
-{
-  "name": "lodash",
-  "version": "3.5.0",
-  "main": "lodash.min.js",
-  "private": true
-}

@@ -18,7 +18,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "lodash": "file:./lodash_build",
+    "lodash": "file:./lodash_custom",
     "turf-bezier": "^1.0.2",
     "turf-distance": "^1.0.1",
     "turf-explode": "^1.0.1",
@@ -32,7 +32,7 @@
     "gulp-jshint": "^1.9.2",
     "gulp-traceur": "^0.17.0",
     "jsverify": "^0.5.2",
-    "lodash-cli": "^3.5.0",
+    "lodash-cli": "^3.6.0",
     "mocha": "^2.2.1",
     "mocha-traceur": "^2.1.0",
     "rimraf": "^2.3.2",
