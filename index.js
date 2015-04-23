@@ -16,9 +16,7 @@ var util = require('./lib/util.js');
 // One can always add to an interface.
 var obj = {
   calculateAverageSpeed: average_speed.calculateAverageSpeed,
-  createFix: fix.createFix,
   isFix: fix.isFix,
-  transformLeafletPositionToFix: fix.transformLeafletPositionToFix,
   createItineraryWatcher: itinerary_watcher.createItineraryWatcher,
   createJourneyWatcher: journey_watcher.createJourneyWatcher,
   isLineString: linestring.isLineString,
