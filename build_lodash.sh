@@ -37,14 +37,12 @@ isArray,\
 isBoolean,\
 isDate,\
 isEmpty,\
-isFinite,\
 isNaN,\
 isNumber,\
 isString,\
 last,\
 map,\
 partial,\
-pick,\
 property,\
 range,\
 reject,\

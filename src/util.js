@@ -21,8 +21,6 @@
 import _ from 'lodash';
 import distance from 'turf-distance';
 
-const isNonNegative = (x) => _.isFinite(x) && x >= 0;
-
 /**
  * Calculates date1 - date2 in seconds.
  */
@@ -68,6 +66,5 @@ export {
   calculateTimeDifferenceInSeconds,
   calculateTimeSinceReferenceInSeconds,
   findFirstIndexAfterWindow,
-  findFirstIndexWithinWindow,
-  isNonNegative
+  findFirstIndexWithinWindow
 };
