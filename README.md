@@ -18,7 +18,7 @@ npm install lodash-cli
 ./build_lodash.sh
 npm install
 gulp test
-gulp build
+gulp
 ```
 
 The compiled ES5 is saved into the directory `lib/`.
