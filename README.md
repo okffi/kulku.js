@@ -5,6 +5,7 @@ Process mobility data to understand and predict movements.
 Current features:
 - Estimate when an itinerary segment has been passed.
 - Calculate the average speed on passed itinerary segments.
+- Estimate if a journey has ended.
 - Only pure functions for now.
 
 
@@ -22,6 +23,7 @@ gulp
 ```
 
 The compiled ES5 is saved into the directory `lib/`.
+The browserified script is saved into the directory `browserified`.
 
 
 ## Glossary
